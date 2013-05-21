@@ -171,5 +171,65 @@ var weirdChange = function (arr, amt) {
 	return keeper.concat(weirdChange(extraCoins, remainder));
 };
 
-
 // console.log(weirdChange([100,70,10,7,1], 154));
+
+
+var mergeSort = function (la, ra) {
+	var res = []
+	while (la.length > 0 && ra.length > 0) {
+		if (la[0] > ra[0]) {
+			res.push(ra.shift());
+		}
+		else {
+			res.push(la.shift());
+		}
+	}
+	if (la.length > 0) {
+		res = res.concat(la);
+	}
+	else {
+		res = res.concat(ra);
+	}
+	return res
+};
+
+
+var arrayBreak = function (a) {
+	if (a.length === 1) {
+		return a;
+	}
+ 	var mid = Math.floor(a.length/2);
+
+	var la = arrayBreak(a.slice(0, mid));
+	var ra = arrayBreak(a.slice(mid, a.length));
+	return mergeSort(la, ra);
+};
+
+
+// a = [5,23,7,2,9,2,12,1];
+
+// console.log(arrayBreak(a));
+
+
+
+var subSets = function (a) {
+	if (a.length <= 1) {
+		return [a];
+	}
+	var x = subSets(a.slice(1,a.length));
+	console.log("x is " + x);
+	console.log("a is " + a );
+	var res = [];
+	// var added_sets = x.map(function(item){res.push(item.concat([a[0]]))});
+
+	// return (a[0].concat(res)).concat(x);
+
+};
+
+a = [1,2,3];
+
+console.log(subSets(a));
+
+
+
+
