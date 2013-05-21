@@ -35,8 +35,6 @@ Array.prototype.myInject = function (accum, meth) {
 	this.myEach(function(item) {
 		accum = meth(accum, item);
 	});
-	// accum = 0
-	// self.my_each {|i| accum = method(accum, i) }
 	// for (var i = 0; i < this.length; i++) {
 	// 	accum = meth(accum, this[i]);
 	// }
